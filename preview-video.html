@@ -18,7 +18,7 @@
           var fnLoadJS = function ( sText ) {
             sText = String( sText );  // if it wasn't a String already, it is now
             var sOut = "<script src=\"https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=js&amp;skin=sunburst\"></" + "script>";
-            sOut += "<code class=\"prettyprint\">" + sText + "</code>";
+            sOut += "<pre class=\"prettyprint\">" + sText + "</pre>";
             elmBase.querySelector("iframe").srcdoc = sOut;  //  update iframe
           };
           var sBMUrl = "https://raw.githubusercontent.com/ceilingrat/web-aug_bm_video-preview_gigafile/master/bm.js",
