@@ -6,7 +6,7 @@
      <button>update link</button>
      <script type="text/javascript">
           // get parent element, used for better DOM queries
-          var elmBase = document.scripts.item( document.scripts.length - 1 );
+          var elmBase = document.scripts.item( document.scripts.length - 1 ).parentElement;
           // button onclick handler
           elmBase.querySelector("button").onclick = function ( oEvent ) {
                var elmA = elmBase.querySelector("a"),
