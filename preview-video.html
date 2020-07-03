@@ -1,7 +1,7 @@
 <div id="divBM">
      <a href="#">Gigafile Preview Video</a>
      <br>
-     <iframe name="ifr1" srcdoc=""></iframe>
+     <iframe name="ifr1" srcdoc="" style="width:80vw; min-width:40em; height:50vh; overflow:scroll;"></iframe>
      <br>
      <button>update link</button>
      <script type="text/javascript">
@@ -11,7 +11,7 @@
           elmBase.querySelector("button").onclick = function ( oEvent ) {
                var elmA = elmBase.querySelector("a"),
                    elmIfr = elmBase.querySelector("iframe");
-               elmA.href = "javascript:" + elmIfr.contentDocument.body.innerText;
+               elmA.href = "javascript:" + elmIfr.contentDocument.body.innerText.replace( /\s+/gi, function (x) { return " " } );
                console.log( oEvent );
           }
           // load JavaScript source file into iframe
