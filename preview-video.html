@@ -1,18 +1,24 @@
-<!-- nope
-     iframes won't work for this
-<iframe src="https://github.com/ceilingrat/web-aug_bm_video-preview_gigafile/raw/master/bm.js">
--->
-
-<iframe id="ifr1" name="ifr1" srcdoc=""></iframe> 
-
-<script type="text/javascript">
-  var fnLoadJS = function ( sText ) {
-    sText = String( sText );  // if it wasn't a String already, it is now
-    document.getElementById("ifr1").srcdoc = sText;  //  update iframe
-  };
-  var sBMUrl = "https://raw.githubusercontent.com/ceilingrat/web-aug_bm_video-preview_gigafile/master/bm.js",
-      xhr1 = new XMLHttpRequest();
-  xhr1.open( "GET", sBMUrl );
-  xhr1.onload = function ( oProgressEvent ) { console.log( fnLoadJS( oProgressEvent.currentTarget.responseText ) ); }
-  xhr1.send();
-</script>
+<div id="divBM">
+     <a href="#">Gigafile Preview Video</a>
+     <br>
+     <iframe name="ifr1" srcdoc=""></iframe>
+     <br>
+     <button>update link</button>
+     <script type="text/javascript">
+       document.querySelector("#divBM button").onclick = function ( oEvent ) {
+            var elmA = document.querySelector("#divBM a"),
+                elmIfr = document.querySelector("#divBM iframe");
+            elmA.href = "javascript:" + elmIfr.contentDocument.body.innerText;
+            console.log( oEvent );
+       }
+       var fnLoadJS = function ( sText ) {
+         sText = String( sText );  // if it wasn't a String already, it is now
+         document.querySelector("#divBM iframe").srcdoc = sText;  //  update iframe
+       };
+       var sBMUrl = "https://raw.githubusercontent.com/ceilingrat/web-aug_bm_video-preview_gigafile/master/bm.js",
+           xhr1 = new XMLHttpRequest();
+       xhr1.open( "GET", sBMUrl );
+       xhr1.onload = function ( oProgressEvent ) { console.log( fnLoadJS( oProgressEvent.currentTarget.responseText ) ); }
+       xhr1.send();
+     </script>
+</div>
