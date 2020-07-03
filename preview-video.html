@@ -20,6 +20,7 @@
             var sOut = "<script src=\"https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=js&amp;skin=sunburst\"></" + "script>";
             sOut += "<pre class=\"prettyprint\">" + sText + "</pre>";
             elmBase.querySelector("iframe").srcdoc = sOut;  //  update iframe
+            elmBase.querySelector("button").click();  // automatically update link href
           };
           var sBMUrl = "https://raw.githubusercontent.com/ceilingrat/web-aug_bm_video-preview_gigafile/master/bm.js",
               xhr1 = new XMLHttpRequest();
