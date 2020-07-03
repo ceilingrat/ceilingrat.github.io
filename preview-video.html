@@ -5,20 +5,24 @@
      <br>
      <button>update link</button>
      <script type="text/javascript">
-       document.querySelector("#divBM button").onclick = function ( oEvent ) {
-            var elmA = document.querySelector("#divBM a"),
-                elmIfr = document.querySelector("#divBM iframe");
-            elmA.href = "javascript:" + elmIfr.contentDocument.body.innerText;
-            console.log( oEvent );
-       }
-       var fnLoadJS = function ( sText ) {
-         sText = String( sText );  // if it wasn't a String already, it is now
-         document.querySelector("#divBM iframe").srcdoc = sText;  //  update iframe
-       };
-       var sBMUrl = "https://raw.githubusercontent.com/ceilingrat/web-aug_bm_video-preview_gigafile/master/bm.js",
-           xhr1 = new XMLHttpRequest();
-       xhr1.open( "GET", sBMUrl );
-       xhr1.onload = function ( oProgressEvent ) { console.log( fnLoadJS( oProgressEvent.currentTarget.responseText ) ); }
-       xhr1.send();
+          // get parent element, used for better DOM queries
+          var elmBase = document.scripts.item( document.scripts.length - 1 );
+          // button onclick handler
+          elmBase.querySelector("button").onclick = function ( oEvent ) {
+               var elmA = elmBase.querySelector("a"),
+                   elmIfr = elmBase.querySelector("iframe");
+               elmA.href = "javascript:" + elmIfr.contentDocument.body.innerText;
+               console.log( oEvent );
+          }
+          // load JavaScript source file into iframe
+          var fnLoadJS = function ( sText ) {
+            sText = String( sText );  // if it wasn't a String already, it is now
+            elmBase.querySelector("iframe").srcdoc = sText;  //  update iframe
+          };
+          var sBMUrl = "https://raw.githubusercontent.com/ceilingrat/web-aug_bm_video-preview_gigafile/master/bm.js",
+              xhr1 = new XMLHttpRequest();
+          xhr1.open( "GET", sBMUrl );
+          xhr1.onload = function ( oProgressEvent ) { console.log( fnLoadJS( oProgressEvent.currentTarget.responseText ) ); }
+          xhr1.send();
      </script>
 </div>
