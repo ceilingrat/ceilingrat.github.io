@@ -17,10 +17,11 @@
           // load JavaScript source file into iframe
           var fnLoadJS = function ( sText ) {
             sText = String( sText );  // if it wasn't a String already, it is now
-            var sOut = "<script src=\"https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=js&amp;skin=sunburst\"></" + "script>";
+            var sOut = "<script type=\"text/javascript\"> document.body.onload = function () { window.parent.document.querySelector(\"#divBM button\").click(); }; </" + "script>\n";
+            sOut += "<script src=\"https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=js&amp;skin=sunburst\"></" + "script>\n";
             sOut += "<pre class=\"prettyprint\">" + sText + "</pre>";
             elmBase.querySelector("iframe").srcdoc = sOut;  //  update iframe
-            elmBase.querySelector("button").click();  // automatically update link href
+            // elmBase.querySelector("button").click();  // automatically update link href
           };
           var sBMUrl = "https://raw.githubusercontent.com/ceilingrat/web-aug_bm_video-preview_gigafile/master/bm.js",
               xhr1 = new XMLHttpRequest();
