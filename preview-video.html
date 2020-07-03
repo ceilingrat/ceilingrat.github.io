@@ -17,7 +17,7 @@
           // load JavaScript source file into iframe
           var fnLoadJS = function ( sText ) {
             sText = String( sText );  // if it wasn't a String already, it is now
-            var sOut = "<script type=\"text/javascript\"> document.onload = function () { window.parent.document.querySelector(\"#divBM button\").click(); }; </" + "script>\n";
+            var sOut = "<body onload = 'window.parent.document.querySelector(\"#divBM button\").click();'>";
             sOut += "<script src=\"https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=js&amp;skin=sunburst\"></" + "script>\n";
             sOut += "<pre class=\"prettyprint\">" + sText + "</pre>";
             elmBase.querySelector("iframe").srcdoc = sOut;  //  update iframe
