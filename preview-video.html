@@ -8,11 +8,11 @@
 <script type="text/javascript">
   var fnLoadJS = function ( sText ) {
     sText = String( sText );  // if it wasn't a String already, it is now
-    //  update iframe
-    document.getElementById("ifr1").srcdoc = sText;
+    document.getElementById("ifr1").srcdoc = sText;  //  update iframe
   };
   var sBMUrl = "https://raw.githubusercontent.com/ceilingrat/web-aug_bm_video-preview_gigafile/master/bm.js",
       xhr1 = new XMLHttpRequest();
   xhr1.open( "GET", sBMUrl );
   xhr1.onload = function ( oProgressEvent ) { console.log( fnLoadJS( oProgressEvent.currentTarget.responseText ) ); }
+  xhr1.send();
 </script>
