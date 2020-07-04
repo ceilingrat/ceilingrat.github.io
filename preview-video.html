@@ -17,7 +17,7 @@
           // load JavaScript source file into iframe
           var fnLoadJS = function ( sText ) {
             sText = String( sText );  // if it wasn't a String already, it is now
-            var sOut = "<body onload = 'window.parent.document.querySelector(\"#divBM button\").click();'>";
+            var sOut = "<body style='background-color: #000;' onload = 'window.parent.document.querySelector(\"#divBM button\").click();'>";
             sOut += "<script src=\"https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=js&amp;skin=sons-of-obsidian\"></" + "script>\n";
             sOut += "<pre class=\"prettyprint linenums\">" + sText + "</pre>";
             elmBase.querySelector("iframe").srcdoc = sOut;  //  update iframe
