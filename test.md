@@ -21,12 +21,14 @@ Can I use more advanced HTML source code in my markdown?
 
 Can I embed a Jitsi Meet meeting?
 
+<div id="jitsi-embed"></div>
 <script type="text/javascript">
   console.log( ({
     domain : 'meet.jit.si',
     options : {
-      width: 640,
-     height: 480
+      width : 640,
+      height : 480,
+      parentNode : document.getElementById("jitsi-embed")
     },
     main : function () {
       return new JitsiMeetExternalAPI(this.domain, this.options);
