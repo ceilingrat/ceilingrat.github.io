@@ -1,4 +1,3 @@
-<script src='https://meet.jit.si/external_api.js'></script>
 # Test.md
 
 I will use this page to try out markdown.
@@ -12,6 +11,8 @@ Can I use <i>raw HTML source code</i> in my markdown?
 
 ### advanced HTML
 Can I use more advanced HTML source code in my markdown?
+
+<script src='https://meet.jit.si/external_api.js'></script>
 
 <iframe src="index.html"></iframe>
 
