@@ -1,0 +1,38 @@
+<head>
+     <meta charset="UTF-8">
+     <title>Gigafile Video Preview Tool</title>
+</head>
+<body>
+     <div id="divBM" style="font-size: 200%;">
+          <a href="#">Web Genie 🕸️🧞</a>
+          <br>
+          <iframe name="ifr1" srcdoc="" style="width:80vw; min-width:25em; height:50vh; overflow:scroll;"></iframe>
+          <br>
+          <button style="display:none;">update link</button>
+          <script type="text/javascript">
+               // get parent element, used for better DOM queries
+               var elmBase = document.scripts.item( document.scripts.length - 1 ).parentElement;
+               // button onclick handler
+               elmBase.querySelector("button").onclick = function ( oEvent ) {
+                    var elmA = elmBase.querySelector("a"),
+                        elmIfr = elmBase.querySelector("iframe");
+                    elmA.href = "javascript:" + elmIfr.contentDocument.body.innerText.replace( /\s+/gi, function (x) { return " " } );
+                    console.log( oEvent );
+               }
+               // load JavaScript source file into iframe
+               var fnLoadJS = function ( sText ) {
+                 sText = String( sText );  // if it wasn't a String already, it is now
+                 var sOut = "<body style='background-color: #000; font-size:150%;' onload = 'window.parent.document.querySelector(\"#divBM button\").click();'>";
+                 sOut += "<script src=\"https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=js&amp;skin=sons-of-obsidian\"></" + "script>\n";
+                 sOut += "<pre class=\"prettyprint linenums\">" + sText + "</pre>";
+                 elmBase.querySelector("iframe").srcdoc = sOut;  //  update iframe
+                 // elmBase.querySelector("button").click();  // automatically update link href
+               };
+               var sBMUrl = "https://raw.githubusercontent.com/ceilingrat/webgenie/main/webgenie.js",
+                   xhr1 = new XMLHttpRequest();
+               xhr1.open( "GET", sBMUrl );
+               xhr1.onload = function ( oProgressEvent ) { console.log( fnLoadJS( oProgressEvent.currentTarget.responseText ) ); }
+               xhr1.send();
+          </script>
+     </div>
+</body>
