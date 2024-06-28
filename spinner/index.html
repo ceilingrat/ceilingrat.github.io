@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <style>
+        body {
+          background-color: #172;
+        }
+        iframe {
+          width: 66%; 
+          height: 66%;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe src="spinner.html"></iframe>
+    <p> </p>
+    <form>
+      <input type="range" name="pick-size" value="4" min="1" max="4" step="1" list="sizes" style="width:150px;" onchange="fnUpdateSize(this);"> 
+      <input type="hidden" name="max-val" value="20"> 
+      <output name="rand-val" style="width:3ex; border:solid 1px;"></output> 
+      <button type="button" name="start" onclick="fnPickRand()">Click here</button> 
+    </form> 
+    <script> 
+        function fnUpdateSize ( pObjInput ) { 
+            var x = parseInt(pObjInput.value), 
+                size = (( Math.round(x/2) * 6 ) + ( (x+1) % 2 * 2**(x-1) )); 
+            document.forms[0].elements['max-val'].value = size; 
+        } 
+        function fnPickRand () { 
+            var m = parseInt( document.forms[0].elements['max-val'].value ), 
+                r = Math.floor( Math.random() * m ) + 1; 
+            document.forms[0].elements['rand-val'].value = r; 
+            spinTo( "d"+m, r );
+        } 
+        function spinTo( d, v ) { 
+            document.querySelector('iframe').contentWindow.postMessage(
+                { type: 'spin', d: d, number: parseInt(v) }
+                , '*'
+            )
+        }
+    </script>
+</body>
+
+</html>
