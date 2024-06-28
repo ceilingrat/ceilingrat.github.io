@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated SVG Spinner</title>
+  <style>
+    @keyframes spin {
+      1% { transform: rotate(-1080deg); }
+      13% { transform: rotate(700deg); } /* 3 full rotations */
+    }
+
+    .spinner {
+      transform-origin: 0 0;
+      transition: transform 0.5s ease-out; /* For smooth transition to final position */
+    }
+    
+    .spinner.spinning {
+      animation: spin 5s cubic-bezier(0.32, 0.94, 0.60, 1);
+    }    
+
+      
+    svg.d20 path#p07 { d: path('M15.45,-47.55 L0,-50'); }
+    svg.d20 path#p19 { d: path('M29.39,-40.45 L15.45,-47.55'); }
+    svg.d20 path#p03 { d: path('M40.45,-29.39 L29.39,-40.45'); }
+    svg.d20 path#p16 { d: path('M47.55,-15.45 L40.45,-29.39'); }
+    svg.d20 path#p09 { d: path('M50,0 L47.55,-15.45'); }
+    svg.d20 path#p01 { d: path('M47.55,15.45 L50,0'); }
+    svg.d20 path#p13 { d: path('M40.45,29.39 L47.55,15.45'); }
+    svg.d20 path#p05 { d: path('M29.39,40.45 L40.45,29.39'); }
+    svg.d20 path#p11 { d: path('M15.45,47.55 L29.39,40.45'); }
+    svg.d20 path#p18 { d: path('M0,50 L15.45,47.55'); }
+    svg.d20 path#p06 { d: path('M-15.45,47.55 L0,50'); }
+    svg.d20 path#p20 { d: path('M-29.39,40.45 L-15.45,47.55'); }
+    svg.d20 path#p14 { d: path('M-40.45,29.39 L-29.39,40.45'); }
+    svg.d20 path#p08 { d: path('M-47.55,15.45 L-40.45,29.39'); }
+    svg.d20 path#p02 { d: path('M-50,0 L-47.55,15.45'); }
+    svg.d20 path#p17 { d: path('M-47.55,-15.45 L-50,0'); }
+    svg.d20 path#p12 { d: path('M-40.45,-29.39 L-47.55,-15.45'); }
+    svg.d20 path#p04 { d: path('M-29.39,-40.45 L-40.45,-29.39'); }
+    svg.d20 path#p10 { d: path('M-15.45,-47.55 L-29.39,-40.45'); }
+    svg.d20 path#p15 { d: path('M0,-50 L-15.45,-47.55'); }
+
+    svg.d20 .spinner[data-number="07"] { transform: rotate(1251.00deg); }
+    svg.d20 .spinner[data-number="19"] { transform: rotate(1233.00deg); }
+    svg.d20 .spinner[data-number="03"] { transform: rotate(1215.00deg); }
+    svg.d20 .spinner[data-number="16"] { transform: rotate(1197.00deg); }
+    svg.d20 .spinner[data-number="09"] { transform: rotate(1179.00deg); }
+    svg.d20 .spinner[data-number="01"] { transform: rotate(1161.00deg); }
+    svg.d20 .spinner[data-number="13"] { transform: rotate(1143.00deg); }
+    svg.d20 .spinner[data-number="05"] { transform: rotate(1125.00deg); }
+    svg.d20 .spinner[data-number="11"] { transform: rotate(1107.00deg); }
+    svg.d20 .spinner[data-number="18"] { transform: rotate(1089.00deg); }
+    svg.d20 .spinner[data-number="06"] { transform: rotate(1431.00deg); }
+    svg.d20 .spinner[data-number="20"] { transform: rotate(1413.00deg); }
+    svg.d20 .spinner[data-number="14"] { transform: rotate(1395.00deg); }
+    svg.d20 .spinner[data-number="08"] { transform: rotate(1377.00deg); }
+    svg.d20 .spinner[data-number="02"] { transform: rotate(1359.00deg); }
+    svg.d20 .spinner[data-number="17"] { transform: rotate(1341.00deg); }
+    svg.d20 .spinner[data-number="12"] { transform: rotate(1323.00deg); }
+    svg.d20 .spinner[data-number="04"] { transform: rotate(1305.00deg); }
+    svg.d20 .spinner[data-number="10"] { transform: rotate(1287.00deg); }
+    svg.d20 .spinner[data-number="15"] { transform: rotate(1269.00deg); }
+ 
+    svg.d12 path#p07 { d: path('M0,-50 L-25,-43.3'); }
+    svg.d12 path#p03 { d: path('M-25,-43.3 L-43.3,-25'); }
+    svg.d12 path#p09 { d: path('M-43.3,-25 L-50,0'); }
+    svg.d12 path#p01 { d: path('M-50,0 L-43.3,25'); }
+    svg.d12 path#p05 { d: path('M-43.3,25 L-25,43.3'); }
+    svg.d12 path#p11 { d: path('M-25,43.3 L0,50'); }
+    svg.d12 path#p06 { d: path('M0,50 L25,43.3'); }
+    svg.d12 path#p08 { d: path('M25,43.3 L43.3,25'); }
+    svg.d12 path#p02 { d: path('M43.3,25 L50,0'); }
+    svg.d12 path#p12 { d: path('M50,0 L43.3,-25'); }
+    svg.d12 path#p04 { d: path('M43.3,-25 L25,-43.3'); }
+    svg.d12 path#p10 { d: path('M25,-43.3 L0,-50'); }
+      
+    svg.d12 .spinner[data-number="07"] { transform: rotate(1275.00deg); }
+    svg.d12 .spinner[data-number="03"] { transform: rotate(1305.00deg); }
+    svg.d12 .spinner[data-number="09"] { transform: rotate(1335.00deg); }
+    svg.d12 .spinner[data-number="01"] { transform: rotate(1365.00deg); }
+    svg.d12 .spinner[data-number="05"] { transform: rotate(1395.00deg); }
+    svg.d12 .spinner[data-number="11"] { transform: rotate(1425.00deg); }
+    svg.d12 .spinner[data-number="06"] { transform: rotate(1095.00deg); }
+    svg.d12 .spinner[data-number="08"] { transform: rotate(1125.00deg); }
+    svg.d12 .spinner[data-number="02"] { transform: rotate(1155.00deg); }
+    svg.d12 .spinner[data-number="12"] { transform: rotate(1185.00deg); }
+    svg.d12 .spinner[data-number="04"] { transform: rotate(1215.00deg); }
+    svg.d12 .spinner[data-number="10"] { transform: rotate(1245.00deg); }
+     
+    svg.d8 path#p07 { d: path('M -0.00,-50.00 L -35.36,-35.36'); }
+    svg.d8 path#p03 { d: path('M -35.36,-35.36 L -50.00,0.00'); }
+    svg.d8 path#p01 { d: path('M -50.00,0.00 L -35.36,35.36'); }
+    svg.d8 path#p05 { d: path('M -35.36,35.36 L 0.00,50.00'); }
+    svg.d8 path#p06 { d: path('M 0.00,50.00 L 35.36,35.36'); }
+    svg.d8 path#p08 { d: path('M 35.36,35.36 L 50.00,-0.00'); }
+    svg.d8 path#p02 { d: path('M 50.00,-0.00 L 35.36,-35.36'); }
+    svg.d8 path#p04 { d: path('M 35.36,-35.36 L -0.00,-50.00'); }    
+
+    svg.d8 .spinner[data-number="07"] { transform: rotate(1282.50deg); }
+    svg.d8 .spinner[data-number="03"] { transform: rotate(1327.50deg); }
+    svg.d8 .spinner[data-number="01"] { transform: rotate(1372.50deg); }
+    svg.d8 .spinner[data-number="05"] { transform: rotate(1417.50deg); }
+    svg.d8 .spinner[data-number="06"] { transform: rotate(1102.50deg); }
+    svg.d8 .spinner[data-number="08"] { transform: rotate(1147.50deg); }
+    svg.d8 .spinner[data-number="02"] { transform: rotate(1192.50deg); }
+    svg.d8 .spinner[data-number="04"] { transform: rotate(1237.50deg); }
+      
+    svg.d6 path#p03 { d: path('M -0.00,-50.00 L -43.30,-25.00'); }
+    svg.d6 path#p01 { d: path('M -43.30,-25.00 L -43.30,25.00'); }
+    svg.d6 path#p05 { d: path('M -43.30,25.00 L 0.00,50.00'); }
+    svg.d6 path#p06 { d: path('M 0.00,50.00 L 43.30,25.00'); }
+    svg.d6 path#p02 { d: path('M 43.30,25.00 L 43.30,-25.00'); }
+    svg.d6 path#p04 { d: path('M 43.30,-25.00 L -0.00,-50.00'); }  
+
+    svg.d6 .spinner[data-number="03"] { transform: rotate(1290.00deg); }
+    svg.d6 .spinner[data-number="01"] { transform: rotate(1350.00deg); }
+    svg.d6 .spinner[data-number="05"] { transform: rotate(1410.00deg); }
+    svg.d6 .spinner[data-number="06"] { transform: rotate(1110.00deg); }
+    svg.d6 .spinner[data-number="02"] { transform: rotate(1170.00deg); }
+    svg.d6 .spinner[data-number="04"] { transform: rotate(1230.00deg); }
+     
+    g.spinner textPath {
+      text-anchor: middle;
+    }
+
+    g.spinner text {
+      font-size: 0.6em;
+    }
+      
+      
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+      
+    #vignette, #spotlight {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+      
+    #vignette {      
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.8) 5%,
+        rgba(0,0,0,0) 20%,
+        rgba(0,0,0,0) 25%,
+        rgba(0,0,0,0) 80%,
+        rgba(0,0,0,.8) 95%        
+      );
+    }
+
+    @keyframes spotlightFadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    #spotlight {
+      background: linear-gradient(
+          95deg,
+          rgba(0,0,0,.8) 5%,
+          rgba(0,0,0,0) 45%        
+        ),
+        linear-gradient(
+          265deg,
+          rgba(0,0,0,.8) 5%,
+          rgba(0,0,0,0) 45%        
+        );
+    }
+
+    #spotlight.visible {
+      animation: spotlightFadeIn 3s ease-in-out forwards;
+      visibility: visible;
+    }
+
+    #spotlight.hidden {
+      visibility: hidden;
+    }
+
+
+    svg {
+      shape-rendering: geometricPrecision;
+      text-rendering: geometricPrecision;
+      image-rendering: optimizeQuality;
+      transform: scale(1);  /* Force vector rendering */
+      width: auto;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+/*
+    #controls {
+      position: absolute;
+      top: 10%;
+      z-index: 1;      
+    }
+*/      
+  </style>
+  <script>
+    // control spinner
+
+    function spinToNumber(targetNumber) {
+      const svg = document.querySelector('svg');
+      const spinner = svg.querySelector('.spinner');
+      const vignette = document.getElementById('vignette');
+      const dieType = svg.getAttribute('class');
+    
+      // Remove any existing classes
+      spinner.classList.remove('spinning');
+      spotlight.setAttribute('class','hidden');
+    
+      // Set the data-number attribute for the final position
+      spinner.setAttribute('data-number', targetNumber.toString().padStart(2, '0'));
+    
+      // Force a reflow to ensure the removal of classes takes effect
+      spinner.offsetWidth;
+    
+      // Start the spinning animation
+      spinner.classList.add('spinning');
+    
+      // Get the computed style to find out the animation duration
+      const spinDuration = parseFloat(getComputedStyle(spinner).getPropertyValue('animation-duration')) * 1000;
+    
+      // start spotlight animation
+      setTimeout(() => {
+        spotlight.setAttribute('class','visible');
+      }, 500 );
+    
+      // Remove the spinning class after the animation
+      spinner.addEventListener('animationend', () => {
+        spinner.classList.remove('spinning');
+        
+      }, { once: true });
+    }
+      // Listen for postMessage events
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.type === 'spin') {
+        console.log('Spin event received:', event.data);
+        document.querySelector("svg").setAttribute("class",event.data.d);
+        spinToNumber(event.data.number);
+      }
+    });
+  </script>
+</head>
+<body>
+  <div id="vignette"></div>
+  <div id="spotlight" class="hidden"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-75 10 150 50" fill="none" class="d20">
+      <defs>
+        <filter id="shadow">
+          <feDropShadow dx=".7" dy="2" stdDeviation="2"></feDropShadow>
+        </filter>
+      </defs>
+      <g class="textpaths" stroke="silver">
+        <path id="p07"></path>
+        <path id="p19"></path>
+        <path id="p03"></path>
+        <path id="p16"></path>
+        <path id="p09"></path>
+        <path id="p01"></path>
+        <path id="p13"></path>
+        <path id="p05"></path>
+        <path id="p11"></path>
+        <path id="p18"></path>
+        <path id="p06"></path>
+        <path id="p20"></path>
+        <path id="p14"></path>
+        <path id="p08"></path>
+        <path id="p02"></path>
+        <path id="p17"></path>
+        <path id="p12"></path>
+        <path id="p04"></path>
+        <path id="p10"></path>
+        <path id="p15"></path>
+      </g>
+      <rect x="-75" y="-75" width="150" height="150" fill="black" opacity="0.2"></rect>
+      <circle stroke="black" fill="black" r="52" filter="url(#shadow)"></circle>
+      <g class="spinner">
+        <circle stroke="black" fill="white" r="52"></circle>
+        <text fill="#000">
+          <textPath href="#p01" class="d6 d8 d12 d20" startOffset="50%">1</textPath>
+          <textPath href="#p02" class="d6 d8 d12 d20" startOffset="50%">2</textPath>
+          <textPath href="#p03" class="d6 d8 d12 d20" startOffset="50%">3</textPath>
+          <textPath href="#p04" class="d6 d8 d12 d20" startOffset="50%">4</textPath>
+          <textPath href="#p05" class="d6 d8 d12 d20" startOffset="50%">5</textPath>
+          <textPath href="#p06" class="d6 d8 d12 d20" startOffset="50%">6</textPath>
+          <textPath href="#p07" class="d8 d12 d20" startOffset="50%">7</textPath>
+          <textPath href="#p08" class="d8 d12 d20" startOffset="50%">8</textPath>
+          <textPath href="#p09" class="d12 d20" startOffset="50%">9</textPath>
+          <textPath href="#p10" class="d12 d20" startOffset="50%">10</textPath>
+          <textPath href="#p11" class="d12 d20" startOffset="50%">11</textPath>
+          <textPath href="#p12" class="d12 d20" startOffset="50%">12</textPath>
+          <textPath href="#p13" class="d20" startOffset="50%">13</textPath>
+          <textPath href="#p14" class="d20" startOffset="50%">14</textPath>
+          <textPath href="#p15" class="d20" startOffset="50%">15</textPath>
+          <textPath href="#p16" class="d20" startOffset="50%">16</textPath>
+          <textPath href="#p17" class="d20" startOffset="50%">17</textPath>
+          <textPath href="#p18" class="d20" startOffset="50%">18</textPath>
+          <textPath href="#p19" class="d20" startOffset="50%">19</textPath>
+          <textPath href="#p20" class="d20" startOffset="50%">20</textPath>
+        </text>
+      </g>
+    </svg>
+<!--
+  <div id="controls">
+    <script>
+      function fnUpdateSize ( pObjInput ) {
+        var x = parseInt(pObjInput.value),
+            out = "d" + (( Math.round(x/2) * 6 ) + ( (x+1) % 2 * 2**(x-1) ));
+        document.querySelector("svg").setAttribute("class",out);
+        prompt( "", out );
+      }
+    </script>
+    <input type=range value="4" min="1" max="4" step="1" list="sizes" style="width:150px;" onchange="fnUpdateSize(this);">
+    <datalist id="sizes" style="display:flex; flex-direction:row; width:150px; justify-content:space-between;" >
+      <option value="1" label="d6"></option>
+      <option value="2" label="d8"></option>
+      <option value="3" label="d12"></option>
+      <option value="4" label="d20"></option>
+    </datalist>
+  </div>
+-->
+</body>
+</html>
